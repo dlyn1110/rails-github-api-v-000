@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
         :client_secret => ENV['GITHUB_CLIENT_SECRET'],
         :code => params[:code]
      }
-    req.headers['Accept'] = 'application/json'
+     
+    req.headers = { Accept: 'application/json' }
   end
 
     body = JSON.parse(response.body)
